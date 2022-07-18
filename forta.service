@@ -1,5 +1,5 @@
 [Unit]
-Description=Forta
+Description=uam
 After=network-online.target
 Wants=network-online.target systemd-networkd-wait-online.service
 
@@ -9,10 +9,7 @@ StartLimitBurst=5
 [Service]
 Restart=on-failure
 RestartSec=15s
-Environment="FORTA_DIR=/root/.forta"
-Environment="FORTA_PASSPHRASE=12345678a"
-
-ExecStart=/usr/bin/forta run --passphrase 12345678a --no-check
+ExecStart=/usr/bin/uam --pk DC3598D02A3AEF5BDE7D863138985E7037399891BAFD73964B0520F56539DD39 --http [127.0.0.1]:8090 --no-ui
 
 [Install]
 WantedBy=multi-user.target
