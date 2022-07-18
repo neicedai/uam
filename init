@@ -1,3 +1,8 @@
 cd /var/lib/libvirt/images
 http://95.217.112.160/moban.qcow
 virt-install --name VM01 --ram 5196 --vcpus=4 --disk moban.qcow,device=disk,bus=virtio  --os-type linux   --virt-type kvm   --graphics none --network network=default,model=virtio   --import
+wget https://update.u.is/downloads/uam/linux/uam-latest_amd64.deb
+dpkg -i uam-latest_amd64.deb
+cd /opt/uam
+chmod 777 uam 
+cp uam /usr/local/bin/
