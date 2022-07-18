@@ -1,0 +1,18 @@
+[Unit]
+Description=Forta
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+Restart=on-failure
+RestartSec=15s
+Environment="FORTA_DIR=/root/.forta"
+Environment="FORTA_PASSPHRASE=12345678a"
+
+ExecStart=/usr/bin/forta run --passphrase 12345678a --no-check
+
+[Install]
+WantedBy=multi-user.target
