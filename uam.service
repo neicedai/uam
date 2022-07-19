@@ -9,7 +9,7 @@ StartLimitBurst=5
 [Service]
 Restart=on-failure
 RestartSec=15s
-ExecStart=/usr/bin/uam --pk DC3598D02A3AEF5BDE7D863138985E7037399891BAFD73964B0520F56539DD39 --http [127.0.0.1]:8090 --no-ui
+ExecStart=./opt/uam/uam --pk DC3598D02A3AEF5BDE7D863138985E7037399891BAFD73964B0520F56539DD39 --http [127.0.0.1]:8090 --no-ui
 
 [Install]
 WantedBy=multi-user.target
