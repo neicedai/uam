@@ -1,0 +1,9 @@
+cp uam.service /etc/systemd/system
+wget https://update.u.is/downloads/uam/linux/uam-latest_amd64.deb
+dpkg -i uam-latest_amd64.deb
+cd /opt/uam
+chmod 777 uam 
+cp uam /usr/local/bin/
+service uam start
+systemctl enable uam
+journalctl -u uam -f
